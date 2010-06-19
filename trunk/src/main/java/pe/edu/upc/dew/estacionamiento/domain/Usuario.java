@@ -15,7 +15,26 @@ public class Usuario {
 	private String  nombre;
         private String  apellido;
         private Integer celular;
-        private String  tipousuario;
+
+        private TipoUsuario tipousuario;
+        private Vehiculo vehiculo;
+
+    public TipoUsuario getTipousuario() {
+        return tipousuario;
+    }
+
+    public void setTipousuario(TipoUsuario tipousuario) {
+        this.tipousuario = tipousuario;
+    }
+
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
+        
 
     public Usuario(){
          
@@ -60,12 +79,6 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getTipousuario() {
-        return tipousuario;
-    }
-
-    public void setTipousuario(String tipousuario) {
-        this.tipousuario = tipousuario;
-    }
+   
 
 }

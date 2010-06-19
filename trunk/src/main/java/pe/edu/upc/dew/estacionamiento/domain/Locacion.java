@@ -13,6 +13,17 @@ public class Locacion {
   private Integer codigo;
   private String  descripcion;
   private boolean  estado;
+  private Estacionamiento estacionamiento;
+
+    public Estacionamiento getEstacionamiento() {
+        return estacionamiento;
+    }
+
+    public void setEstacionamiento(Estacionamiento estacionamiento) {
+        this.estacionamiento = estacionamiento;
+    }
+
+
 
     public Integer getCodigo() {
         return codigo;

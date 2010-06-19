@@ -16,6 +16,24 @@ public class Ticket {
     private Integer numeroticket;
     private String fechaingreso;
     private String fechasalida;
+    private Vehiculo vehiculo;
+    private Locacion locacion;
+
+    public Integer getNumeroticket() {
+        return numeroticket;
+    }
+
+    public void setNumeroticket(Integer numeroticket) {
+        this.numeroticket = numeroticket;
+    }
+
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
 
 
 
