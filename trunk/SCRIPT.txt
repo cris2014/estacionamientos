@@ -1,0 +1,112 @@
+*==============================================================*/
+/* Table: COLOR                                                 */
+/*==============================================================*/
+create table COLOR (
+   CO_COLOR             integer                        not null,
+   TX_COLOR             varchar(30)                    null,
+   constraint PK_COLOR primary key (CO_COLOR)
+)
+go
+
+/*==============================================================*/
+/* Table: ESTACIONAMIENTO                                       */
+/*==============================================================*/
+create table ESTACIONAMIENTO (
+   CO_ESTACIONAMIENTO   integer                        not null,
+   NO_ESTACIONAMIENTO   varchar(30)                    null,
+   TX_DIRECCION         varchar(50)                    null,
+   constraint PK_ESTACIONAMIENTO primary key (CO_ESTACIONAMIENTO)
+)
+go
+
+/*==============================================================*/
+/* Table: MARCA                                                 */
+/*==============================================================*/
+create table MARCA (
+   CO_MARCA             integer                        not null,
+   NO_MARCA             varchar(30)                    null,
+   constraint PK_MARCA primary key (CO_MARCA)
+)
+go
+
+/*==============================================================*/
+/* Table: TICKET                                                */
+/*==============================================================*/
+create table TICKET (
+   NU_TICKET            integer                        null,
+   FE_INGRESO           datetime                       null,
+   FE_SALIDA            datetime                       null,
+   CO_UBICACION         integer                        null,
+   NU_PLACA             varchar(10)                    null
+)
+go
+
+/*==============================================================*/
+/* Table: UBICACION                                             */
+/*==============================================================*/
+create table UBICACION (
+   CO_UBICACION         integer                        not null,
+   TX_NIVEL             char(1)                        null,
+   NU_SECTOR            integer                        null,
+   NU_POSICION          integer                        null,
+   CO_ESTACIONAMIENTO   integer                        null,
+   TX_ESTADO            char(1)                        null,
+   constraint PK_UBICACION primary key (CO_UBICACION)
+)
+go
+
+/*==============================================================*/
+/* Table: USUARIO                                               */
+/*==============================================================*/
+create table USUARIO (
+   CO_USUARIO           varchar(2)                     not null,
+   NO_USUARIO           varchar(50)                    null,
+   TX_CLAVE             varchar(10)                    null,
+   FL_TIPO              integer                        null,
+   constraint PK_USUARIO primary key (CO_USUARIO)
+)
+go
+
+/*==============================================================*/
+/* Table: VEHICULO                                              */
+/*==============================================================*/
+create table VEHICULO (
+   NU_PLACA             varchar(10)                    not null,
+   NO_MODELO            varchar(30)                    null,
+   CO_MARCA             integer                        null,
+   CO_COLOR             integer                        null,
+   CO_USUARIO           varchar(2)                     null,
+   constraint PK_VEHICULO primary key (NU_PLACA)
+)
+go
+
+alter table TICKET
+   add constraint R6 foreign key (CO_UBICACION)
+      references UBICACION (CO_UBICACION)
+go
+
+alter table TICKET
+   add constraint R7 foreign key (NU_PLACA)
+      references VEHICULO (NU_PLACA)
+go
+
+alter table UBICACION
+   add constraint R1 foreign key (CO_ESTACIONAMIENTO)
+      references ESTACIONAMIENTO (CO_ESTACIONAMIENTO)
+go
+
+alter table VEHICULO
+   add constraint R3 foreign key (CO_USUARIO)
+      references USUARIO (CO_USUARIO)
+go
+
+alter table VEHICULO
+   add constraint R4 foreign key (CO_MARCA)
+      references MARCA (CO_MARCA)
+go
+
+alter table VEHICULO
+   add constraint R5 foreign key (CO_COLOR)
+      references COLOR (CO_COLOR)
+go
+
