@@ -20,6 +20,8 @@ public class CalculadoraTest {
         int resultado = calculadora.sumar(3,2);
         Assert.assertEquals(5, resultado);
 
+        //prueba HOY 08/08/10
+
     }
 
 }
