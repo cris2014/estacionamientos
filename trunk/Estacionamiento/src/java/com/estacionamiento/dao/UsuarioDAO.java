@@ -13,10 +13,7 @@ import java.sql.*;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMessage;
 
-/**
- *
- * @author pcruces
- */
+
 public class UsuarioDAO {
 
 	public UsuarioBean validarLogin(UsuarioBean usuario,ActionErrors errors){

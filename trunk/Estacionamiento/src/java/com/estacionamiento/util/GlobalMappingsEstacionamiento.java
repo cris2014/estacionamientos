@@ -5,10 +5,7 @@
 
 package com.estacionamiento.util;
 
-/**
- *
- * @author pcruces
- */
+
 public class GlobalMappingsEstacionamiento {
     public static final String INICIO = "inicio";
     public static final String INICIO1 = "ingresoSalida";

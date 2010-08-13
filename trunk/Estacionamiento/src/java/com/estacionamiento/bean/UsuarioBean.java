@@ -7,10 +7,7 @@ package com.estacionamiento.bean;
 
 import java.io.Serializable;
 
-/**
- *
- * @author pcruces
- */
+
 public class UsuarioBean implements Serializable{
         private String  codigo;
         private String  login;

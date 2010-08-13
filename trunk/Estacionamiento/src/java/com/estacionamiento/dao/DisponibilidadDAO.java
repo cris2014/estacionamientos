@@ -12,10 +12,7 @@ import java.util.ArrayList;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMessage;
 
-/**
- *
- * @author pcruces
- */
+
 public class DisponibilidadDAO {
 
 	public ArrayList obtenerDispoEstacionamiento(ActionErrors errors){

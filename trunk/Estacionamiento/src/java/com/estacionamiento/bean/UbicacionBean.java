@@ -7,10 +7,7 @@ package com.estacionamiento.bean;
 
 import java.io.Serializable;
 
-/**
- *
- * @author pcruces
- */
+
 public class UbicacionBean implements Serializable{
    private String  nombreEstacionamiento;
    private String  ubicacion;

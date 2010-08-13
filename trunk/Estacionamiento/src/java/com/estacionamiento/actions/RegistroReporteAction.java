@@ -22,10 +22,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
 
-/**
- *
- * @author Jefferson
- */
+
 public class RegistroReporteAction  extends DispatchAction{
  	public ActionForward  irRegistro(
 			ActionMapping mapping,

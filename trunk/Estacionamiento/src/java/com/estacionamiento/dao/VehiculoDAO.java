@@ -11,10 +11,7 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
-/**
- *
- * @author pcruces
- */
+
 public class VehiculoDAO {
 
 	public void registrarVehiculo(VehiculoBean vehiculo,ActionErrors errors){

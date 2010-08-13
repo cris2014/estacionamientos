@@ -23,10 +23,7 @@ import org.apache.struts.action.ActionMapping;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.PieDataset;
 
-/**
- *
- * @author Jefferson
- */
+
 public class DisponibilidadAction extends Action{
 
      public ActionForward execute(
