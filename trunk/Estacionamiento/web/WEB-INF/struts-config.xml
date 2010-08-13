@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+	<form-bean name="InterfaceForm" type="com.estacionamiento.forms.InterfaceForm">
+	</form-bean>
+
+        <form-bean name="LoginForm" type="com.estacionamiento.forms.LoginForm">
+	</form-bean>
+
+        <form-bean name="IngresoSalidaForm" type="com.estacionamiento.forms.IngresoSalidaForm">
+	</form-bean>
+
+        <form-bean name="RegistroReporteForm" type="com.estacionamiento.forms.RegistroReporteForm">
+	</form-bean>
+
+        <form-bean name="MenuForm" type="com.estacionamiento.forms.MenuForm">
+	</form-bean>
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="inicio"  path="/Inicio.do"/>
+    </global-forwards>
+
+    <action-mappings>
+        <action path="/Inicio" forward="/inicio.jsp"/>
+
+	<action name="InterfaceForm"  path="/interface" type="com.estacionamiento.actions.InterfaceAction"  scope="request">
+                <forward name="ingresoSalida" path="/login1.jsp">
+	  	</forward>
+                <forward name="mantenimientoConsulta" path="/login2.jsp">
+	  	</forward>
+                 <forward name="disponibilidad" path="/disponibilidadAction.do">
+	  	</forward>
+                <!--
+                <forward name="disponibilidad" path="/disponibilidad.jsp">
+	  	</forward>
+                -->
+	</action>
+
+        <action name="LoginForm" path="/login" scope="request" type="com.estacionamiento.actions.LoginAction">
+                <forward name="ingreso" path="/ingreso.jsp">
+                </forward>
+                <forward name="salida" path="/salida.jsp">
+                </forward>
+                <forward name="menu" path="/menu.jsp">
+                </forward>
+                <forward name="self" path="/login2.jsp">
+	  	</forward>
+        </action>
+
+        <action name="IngresoSalidaForm" path="/ingresoSalidaAction" scope="request" type="com.estacionamiento.actions.IngresoSalidaAction">
+                <forward name="ingreso" path="/ingreso.jsp">
+                </forward>
+                <forward name="salida" path="/salida.jsp">
+                </forward>
+                <forward name="inicio" path="/inicio.jsp">
+                </forward>
+                <forward name="self" path="/login1.jsp">
+	  	</forward>
+        </action>
+
+	<action path="/registroReporteAction"  type="com.estacionamiento.actions.RegistroReporteAction" name="RegistroReporteForm"  parameter="operacion">
+                 <forward name="registroVehiculo" path="/registrovehiculo.jsp">
+	  	</forward>
+                 <forward name="self" path="/registrovehiculo.jsp">
+	  	</forward>
+                <forward name="reporteEstado" path="/reportedeestado.jsp">
+	  	</forward>
+                 <forward name="menu" path="/menu.jsp">
+                </forward>
+                <!--
+                <forward name="retornar" path="/iniciarSolicitudOIEquipamiento.do">
+	  	</forward>
+		<forward name="inicio" path="/solicitudOIEquipamiento/crearSolicitud.jsp">
+		</forward>					
+		<forward name="confirmar" path="/solicitudOIEquipamiento/confirmar.jsp">
+		</forward>
+                -->
+	</action>
+        <!--
+ 	<action path="/registroReporteAction"  type="com.estacionamiento.actions.RegistroReporteAction" name="RegistroReporteForm"  parameter="operacion">
+                 <forward name="registroVehiculo" path="/registrovehiculo.jsp">
+	  	</forward>
+                <forward name="reporteEstado" path="/reportedeestado.jsp">
+	  	</forward>
+	</action>
+        -->
+       <action path="/disponibilidadAction"  type="com.estacionamiento.actions.DisponibilidadAction" name="LoginForm"  >
+                 <forward name="disponibilidad" path="/disponibilidad.jsp">
+	  	</forward>
+                <forward name="inicio" path="/inicio.jsp">
+                </forward>
+	</action>
+        
+        
+	<action name="MenuForm"  path="/menuinterno" type="com.estacionamiento.actions.MenuAction"  scope="request">
+                <forward name="registroVehiculo" path="/registrovehiculo.jsp">
+	  	</forward>
+                <forward name="reporteEstado" path="/reportedeestado.jsp">
+	  	</forward>
+	</action>
+
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+	<!-- Message Resources -->
+    <message-resources parameter="com.estacionamiento.resources.ApplicationResources"/>
+    
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>
