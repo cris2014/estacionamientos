@@ -19,10 +19,7 @@ import java.io.IOException;
  import org.jfree.data.general.PieDataset;  
 
  
-/**
- *
- * @author Jefferson
- */
+
 public class Grafico {
    private static final long serialVersionUID =1L;// -8625975218180144099L;  
 

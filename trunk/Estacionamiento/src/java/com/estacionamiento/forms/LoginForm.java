@@ -10,10 +10,7 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
-/**
- *
- * @author pcruces
- */
+
 public class LoginForm extends ActionForm{
    private String user = null;
    private String pwd  = null;

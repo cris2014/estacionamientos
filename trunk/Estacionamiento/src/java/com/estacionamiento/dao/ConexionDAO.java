@@ -7,10 +7,7 @@ package com.estacionamiento.dao;
 
 import java.sql.*;
 
-/**
- *
- * @author pcruces
- */
+
 public class ConexionDAO {
     public static Connection conn = null;
     public static ConexionDAO instance = null;

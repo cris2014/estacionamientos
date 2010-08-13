@@ -19,10 +19,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
-/**
- *
- * @author pcruces
- */
+
 public class LoginAction extends Action{
 
 

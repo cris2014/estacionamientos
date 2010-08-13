@@ -5,10 +5,6 @@
 
 package com.estacionamiento.actions;
 
-/**
- *
- * @author Jefferson
- */
 public class DispatcherIngresoSalidaAction {
 
 }

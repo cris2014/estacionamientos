@@ -12,10 +12,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-/**
- *
- * @author pcruces
- */
+
 public class Fecha {
 
 	public static final int NUM_ANOS_ANTES = 5;

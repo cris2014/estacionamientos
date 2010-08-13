@@ -7,10 +7,7 @@ package com.estacionamiento.dao;
 
 import java.sql.*;
 
-/**
- *
- * @author pcruces
- */
+
 public class Coneccion {
     public static void main(String args[]){
 

@@ -5,10 +5,7 @@
 
 package com.estacionamiento.bean;
 
-/**
- *
- * @author pcruces
- */
+
 public class EstacionamientoBean {
    private String codigo;
    private String nombre;
