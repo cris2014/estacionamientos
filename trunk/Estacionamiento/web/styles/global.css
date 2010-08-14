@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 body {
 	margin: 0; /* es recomendable ajustar a cero el margen y el relleno del elemento body para lograr la compatibilidad con la configuración predeterminada de los diversos navegadores */
 	padding: 0;
