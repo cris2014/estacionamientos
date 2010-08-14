@@ -4,8 +4,10 @@
  */
 
 package com.estacionamiento.actions;
+import com.estacionamiento.dao.VehiculoDAO;
 import com.estacionamiento.forms.InterfaceForm;
 import com.estacionamiento.util.GlobalMappingsEstacionamiento;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -30,10 +32,20 @@ public class InterfaceAction  extends Action{
 			ActionErrors errors = new ActionErrors();
 			ActionForward forward = new ActionForward();
                         InterfaceForm interfaceForm = (InterfaceForm)form;
+                        HttpSession session=request.getSession();
 
                         String operacion=interfaceForm.getOperacion();
 
                         if(operacion!=null && operacion.equals("1")){
+                            ArrayList lstEst=new ArrayList();
+                            VehiculoDAO vehiculo=new VehiculoDAO();
+                            lstEst=vehiculo.obtenerLstEstacionamiento(errors);
+
+                            if(!errors.isEmpty()){
+                                saveErrors(request, errors);
+                            }
+                            session.setAttribute("lstEstacionamiento", lstEst);
+                            
 			    forward = mapping.findForward(GlobalMappingsEstacionamiento.INICIO1);
                         }else{
                             if (operacion!=null && operacion.equals("2")){

@@ -7,7 +7,10 @@ package com.estacionamiento.dao;
 
 import java.sql.*;
 
-
+/**
+ *
+ * @author pcruces
+ */
 public class ConexionDAO {
     public static Connection conn = null;
     public static ConexionDAO instance = null;
@@ -40,7 +43,7 @@ public class ConexionDAO {
        try{
             // De esta forma se obtiene la conexión
             //con = DriverManager.getConnection(url,"sa","sa");
-             conn =DriverManager.getConnection("jdbc:mysql://127.0.0.1/ESTACIONAMIENTO?user=root&password=40292950");
+             conn =DriverManager.getConnection("jdbc:mysql://127.0.0.1/ESTACIONAMIENTO?user=root&password=sa");
 
             System.out.println("Conexión establecida.");
 

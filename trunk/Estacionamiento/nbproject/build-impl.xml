@@ -522,9 +522,16 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.commons-collections-3.2.1.jar}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.file.reference.commons-collections-3.2.1.jar" todir="${dist.ear.dir}"/>
         <copyfiles files="${file.reference.commons-digester-2.0.jar}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.file.reference.commons-digester-2.0.jar" todir="${dist.ear.dir}"/>
         <copyfiles files="${file.reference.commons-logging-1.1.1.jar}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.file.reference.commons-logging-1.1.1.jar" todir="${dist.ear.dir}"/>
+        <copyfiles files="${file.reference.commons-validator.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.file.reference.commons-validator.jar-1" todir="${dist.ear.dir}"/>
+        <copyfiles files="${file.reference.jcommon-1.0.16.jar-2}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.file.reference.jcommon-1.0.16.jar-2" todir="${dist.ear.dir}"/>
+        <copyfiles files="${file.reference.jfreechart-1.0.13.jar-2}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.file.reference.jfreechart-1.0.13.jar-2" todir="${dist.ear.dir}"/>
+        <copyfiles files="${file.reference.jstl.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.file.reference.jstl.jar-1" todir="${dist.ear.dir}"/>
+        <copyfiles files="${file.reference.jstl_el.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.file.reference.jstl_el.jar-1" todir="${dist.ear.dir}"/>
+        <copyfiles files="${file.reference.mysql-connector-java-5.0.0-beta-bin.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.file.reference.mysql-connector-java-5.0.0-beta-bin.jar-1" todir="${dist.ear.dir}"/>
+        <copyfiles files="${file.reference.standard.jar-1}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.file.reference.standard.jar-1" todir="${dist.ear.dir}"/>
         <mkdir dir="${build.web.dir}/META-INF"/>
         <manifest file="${build.web.dir}/META-INF/MANIFEST.MF" mode="update">
-            <attribute name="Class-Path" value="${manifest.libs.struts.classpath} ${manifest.file.reference.common-annotations.jar} ${manifest.file.reference.commons-beanutils-1.8.2.jar} ${manifest.file.reference.commons-collections-3.2.1.jar} ${manifest.file.reference.commons-digester-2.0.jar} ${manifest.file.reference.commons-logging-1.1.1.jar} "/>
+            <attribute name="Class-Path" value="${manifest.libs.struts.classpath} ${manifest.file.reference.common-annotations.jar} ${manifest.file.reference.commons-beanutils-1.8.2.jar} ${manifest.file.reference.commons-collections-3.2.1.jar} ${manifest.file.reference.commons-digester-2.0.jar} ${manifest.file.reference.commons-logging-1.1.1.jar} ${manifest.file.reference.commons-validator.jar-1} ${manifest.file.reference.jcommon-1.0.16.jar-2} ${manifest.file.reference.jfreechart-1.0.13.jar-2} ${manifest.file.reference.jstl.jar-1} ${manifest.file.reference.jstl_el.jar-1} ${manifest.file.reference.mysql-connector-java-5.0.0-beta-bin.jar-1} ${manifest.file.reference.standard.jar-1} "/>
         </manifest>
     </target>
     <target depends="init" name="library-inclusion-in-archive" unless="dist.ear.dir">
@@ -534,6 +541,13 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.commons-collections-3.2.1.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.commons-digester-2.0.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.commons-logging-1.1.1.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${file.reference.commons-validator.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${file.reference.jcommon-1.0.16.jar-2}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${file.reference.jfreechart-1.0.13.jar-2}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${file.reference.jstl.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${file.reference.jstl_el.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${file.reference.mysql-connector-java-5.0.0-beta-bin.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${file.reference.standard.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
     </target>
     <target depends="init,compile,compile-jsps,-pre-dist,library-inclusion-in-manifest" if="do.tmp.war.package" name="do-ear-dist">
         <dirname file="${dist.ear.war}" property="dist.jar.dir"/>

@@ -21,7 +21,6 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
-
 public class IngresoSalidaAction extends Action{
    public ActionForward execute(
         ActionMapping mapping,
@@ -41,9 +40,6 @@ public class IngresoSalidaAction extends Action{
             session.removeAttribute("ubicacionBean");
             String operacion=ingresoSalidaForm.getOperacion();
             ingresoSalidaForm.getEstacionamiento();
-     System.out.println("dquinonez::"+operacion);
-     System.out.println("dquinonez::"+ingresoSalidaForm.getEstacionamiento());
-     System.out.println("dquinonez::"+ingresoSalidaForm.getUser());
 
             if(operacion!=null && operacion.equals(GlobalMappingsEstacionamiento.INICIO1)){
                 UsuarioDAO usuarioDAO=new UsuarioDAO();

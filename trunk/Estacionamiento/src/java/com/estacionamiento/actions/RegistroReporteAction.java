@@ -32,10 +32,54 @@ public class RegistroReporteAction  extends DispatchAction{
 			throws Exception {
 
 			ActionForward forward = new ActionForward(); 
-                       
+                        ActionErrors errors = new ActionErrors();
+                        RegistroReporteForm registroReporte =(RegistroReporteForm) form;
+                        HttpSession session=request.getSession();
                         forward = mapping.findForward(GlobalMappingsEstacionamiento.REGISTRO);
-                         
-                        return (forward);
+
+                try{
+                    ArrayList lstColor=new ArrayList();
+                    ArrayList lstMarca=new ArrayList();
+                    VehiculoDAO vehiculo=new VehiculoDAO();
+                    lstColor=vehiculo.obtenerLstColor(errors);
+
+
+                    if(!errors.isEmpty()){
+                       saveErrors(request, errors);
+                     }else{
+                       lstMarca=vehiculo.obtenerLstMarca(errors);
+                       if(!errors.isEmpty()){
+                           saveErrors(request, errors);
+                       }
+                     }
+                    UsuarioBean usuario=(UsuarioBean)session.getAttribute("usuario");
+
+
+                    if(usuario.getFlag().equals("2")){
+                       VehiculoBean vehiculobean=new VehiculoBean();
+                       vehiculobean=usuario.getVehiculo();
+
+                       registroReporte.setPlaca(vehiculobean.getPlaca());
+                       registroReporte.setModelo(vehiculobean.getModelo());
+
+                       request.setAttribute("codColor",vehiculobean.getColor());
+                       request.setAttribute("codMarca",vehiculobean.getMarca());
+
+                    }else{
+                        registroReporte.setPlaca("");
+                        registroReporte.setModelo("");
+                        request.removeAttribute("codColor");
+                        request.removeAttribute("codMarca");
+                    }
+                    
+                      session.setAttribute("lstColor", lstColor);
+                      session.setAttribute("lstMarca", lstMarca);
+
+                }catch(Exception e){
+                   e.printStackTrace();
+                }
+
+                return (forward);
                         
         }                
     	public ActionForward  irReporte(
@@ -114,11 +158,7 @@ public class RegistroReporteAction  extends DispatchAction{
                HttpSession session=request.getSession();
 
                try{
-                  //forward = mapping.findForward(GlobalMappingsEstacionamiento.REGISTRO);
                   forward = mapping.findForward(GlobalMappingsEstacionamiento.MENU);
-                  System.out.println("dquinonez::"+registroReporte.getPlaca());
-                  System.out.println("dquinonez::"+registroReporte.getMarca());
-                  System.out.println("dquinonez::"+registroReporte.getColor());
 
                   VehiculoBean vehiculo=new VehiculoBean();
 
@@ -130,13 +170,19 @@ public class RegistroReporteAction  extends DispatchAction{
                   vehiculo.setColor(registroReporte.getColor());
                   vehiculo.setUsuario(usuario);
 
-                  VehiculoDAO vehiculoDAO=new VehiculoDAO();
-                  vehiculoDAO.registrarVehiculo(vehiculo,errors);
 
-                  if(!errors.isEmpty()){
+                  VehiculoDAO vehiculoDAO=new VehiculoDAO();
+                  int rpta=vehiculoDAO.registrarVehiculo(vehiculo,errors);
+
+                  if(errors.isEmpty() && rpta==2){
+                      usuario.setFlag(""+rpta);
+                      usuario.setVehiculo(vehiculo);
+                      session.setAttribute("usuario",usuario);
+                  }else {
                        saveErrors(request, errors);
                        forward = mapping.findForward(GlobalMappingsEstacionamiento.SELF);
                   }
+
 
                }catch(Exception e){
                    e.printStackTrace();
@@ -159,7 +205,6 @@ public class RegistroReporteAction  extends DispatchAction{
                         HttpSession session=request.getSession();
                try{
 
-                  System.out.println("dquinonez::"+registroReporte.getEstacionamiento());
                   session.removeAttribute("lstEstacionamiento");
                   ArrayList lstEstacionamiento=new ArrayList();
                   DisponibilidadDAO disponibilidad=new DisponibilidadDAO();
@@ -199,66 +244,4 @@ public class RegistroReporteAction  extends DispatchAction{
                return (forward);
                         
         }
-   /*                     
-	public ActionForward buscarUnidad(
-			ActionMapping mapping,
-			ActionForm form,
-			HttpServletRequest request,
-			HttpServletResponse response)
-			throws Exception {
-            
-		    HttpSession session=request.getSession();
-		    
-			ActionErrors errors = new ActionErrors();
-			ActionForward forward = new ActionForward(); 
-                        
-			SolicitudOIEquipamientoForm solicitudOIEquipamiento =(SolicitudOIEquipamientoForm) form;
-			UnidadBean unidad=new UnidadBean();
-			UnidadBean unidadRpta=new UnidadBean();
-			ArrayList lstTaller=new ArrayList();
-			
-			try {
-				session.removeAttribute("flagGrabar");
-				
-				unidad.setEmbarque(solicitudOIEquipamiento.getEmbarque());
-				unidad.setNumCase(solicitudOIEquipamiento.getNumCase());
-				
-				Usuario usuario = (Usuario)request.getSession().getAttribute("usuario");			
-				unidad.setIdPuntoVenta(usuario.getPuntoVenta().getId().intValue());
-			
-				
-				SolicitudOIEquipamientoDAO solicitudOIEquipamientoDAO=new SolicitudOIEquipamientoDAO();
-				lstTaller=solicitudOIEquipamientoDAO.buscarTaller(errors);
-				//////Asignacion de Taller////////
-				ArrayList lstFinTaller=new ArrayList();
-				TallerBean taller=new TallerBean();
-				for(int j=0;j<lstTaller.size();j++){
-					taller=(TallerBean)lstTaller.get(j);
-					lstFinTaller.add(new org.apache.struts.util.LabelValueBean(taller.getNombreTaller(),taller.getCodTaller()));
-				}
-				
-				session.setAttribute("lstFinTaller",lstFinTaller);
-				
-				unidadRpta=solicitudOIEquipamientoDAO.buscarUnidad(unidad, errors);
-				session.setAttribute("unidad", unidadRpta);
-				if (errors.isEmpty()) {
-					session.setAttribute("flagGrabar","1");
-				}				
-
-			}catch (Exception e) {
-				Logger.log(Logger.ERROR, e, "OCURRIO UN ERROR AL BUSCAR UNIDAD", this.getClass().toString());
-				if (errors.isEmpty()) {
-				    errors.add("error.buscar.Unidad", new ActionError("error.buscar.Unidad"));	
-				}
-			}
-
-			if (!errors.isEmpty()) {
-					saveErrors(request, errors);
-
-			} 
-
-			forward = mapping.findForward(GlobalMappingsVentas.INICIO);
-			return (forward);			
-		}
-*/        
 }
