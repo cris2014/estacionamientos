@@ -3,12 +3,12 @@
  * and open the template in the editor.
  */
 
-package com.estacionamiento.actions;
+package com.estacionamiento.dao;
 
 /**
  *
- * @author iluna
+ * @author pcruces
  */
-public class DispatcherIngresoSalidaAction {
+public class LoginDAO {
 
 }

@@ -1,8 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-
-<%@ page import="java.util.Date, com.estacionamiento.util.Fecha" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -18,11 +15,6 @@ function MM_preloadImages() { //v3.0
     if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
 }
 //-->
-function aceptar(){
-    var f= document.forms[0];
-    f.operacion.value="aceptar";
-    f.submit();
-}
 </script>
 </head>
 
@@ -32,10 +24,7 @@ function aceptar(){
   <div id="header">
     <!-- end #header --></div>
   <div id="ing_sal">
-
-<html:form action="/ingresoSalidaAction" >
-<html:hidden property="operacion" />
-
+  
 <table width="924" cellpadding="0" cellspacing="0">
   <tr>
     <td colspan="3"><img src="img/tit_salida.jpg" width="924" height="31" /></td>
@@ -53,7 +42,7 @@ function aceptar(){
   <tr>
     <td>&nbsp;</td>
     <td class="bigtext2">UBICACIÓN</td>
-    <td class="bigtext1"><bean:write name="ubicacionBean" property="ubicacion" /></td>
+    <td class="bigtext1">A2 - 15</td>
     </tr>
   <tr>
     <td>&nbsp;</td>
@@ -63,7 +52,7 @@ function aceptar(){
   <tr>
     <td>&nbsp;</td>
     <td class="bigtext2">FECHA - HORA</td>
-    <td class="bigtext2"><%= Fecha.getFormattedDate(new Date(), "dd/MM/yyyy HH:mm:ss")%></td>
+    <td class="bigtext2">13/06/2010 - 08:55:15</td>
     </tr>
   <tr>
     <td>&nbsp;</td>
@@ -73,7 +62,7 @@ function aceptar(){
   <tr>
     <td>&nbsp;</td>
     <td class="bigtext2">USUARIO</td>
-    <td class="bigtext2"><bean:write name="ubicacionBean" property="usuario" /></td>
+    <td class="bigtext2">Rolando Cabrera</td>
     </tr>
   <tr>
     <td>&nbsp;</td>
@@ -83,7 +72,7 @@ function aceptar(){
   <tr>
     <td>&nbsp;</td>
     <td class="bigtext2">ESTACIONAMIENTO</td>
-    <td class="bigtext2"><bean:write name="ubicacionBean" property="nombreEstacionamiento" /></td>
+    <td class="bigtext2">Estacionamiento 1</td>
     </tr>
   <tr>
     <td>&nbsp;</td>
@@ -98,13 +87,11 @@ function aceptar(){
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td>
+    <td><form id="form1" name="form1" method="post" action="">
       <label>
-        <a href="javascript:aceptar()">
-	      <img src="img/aceptar.JPG"  border="0" align="center">
-	</a>
+        <input type="submit" name="aceptar" id="aceptar" value="ACEPTAR" />
       </label>
-    </td>
+    </form></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
@@ -114,7 +101,7 @@ function aceptar(){
 </table>
 
   
-  </html:form>
+   
   <!-- end #ing_sal --></div>
 
 <!-- end #container --></div>

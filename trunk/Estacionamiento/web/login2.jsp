@@ -1,7 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
-<%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,7 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Sistema Estacionamiento</title>
 <link href="styles/global.css" rel="stylesheet" type="text/css" />
-
 <script type="text/javascript">
 <!--
 function MM_preloadImages() { //v3.0
@@ -26,26 +23,11 @@ function MM_preloadImages() { //v3.0
 <div id="container">
   <div id="header">
     <!-- end #header --></div>
-       <!--	Mensajes de error -->
-	<logic:messagesPresent>
-		<table width="500" border="0" align="center">
-			<tr>
-  				<td  height="15" style="font-weight:bold;" >
-					<bean:message key="errors.validation.header" />
-					<html:messages id="error">
-						<c:out value="${error}" />
-					</html:messages>
-					<bean:message key="errors.validation.footer" />
-				</td>
-			</tr>
-		</table>
-	</logic:messagesPresent>
-<!--	Mensajes de error -->
   <div id="login">
+  
   <div id="campo_login2">
   <!-- end #campo_login -->
    <html:form action="/login" >
-
   <table width="500" border="0">
     <tr>
       <td width="43">&nbsp;</td>

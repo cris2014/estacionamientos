@@ -6,7 +6,10 @@
 package com.estacionamiento.forms;
 
 import org.apache.struts.action.ActionForm;
-
+/**
+ *
+ * @author iluna
+ */
 public class MenuForm extends ActionForm{
    private String operacion=null;
 

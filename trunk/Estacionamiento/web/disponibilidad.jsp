@@ -27,30 +27,8 @@ function MM_preloadImages() { //v3.0
   
 <table width="924" cellpadding="2" cellspacing="0">
   <tr>
-    <td colspan="3"><img src="img/tit_disponibilidad.jpg" width="924" height="31" /></td>
+    <td colspan="4"><img src="img/tit_disponibilidad.jpg" width="924" height="31" /></td>
     </tr>
-    <tr>
-       <td>&nbsp;</td>
-       <td width="500">&nbsp;</td>
-       <td >&nbsp;</td>
-    </tr>
-     <tr>
-       <td>&nbsp;</td>
-       <td width="500"><img src="img/chart1.jpg"/></td>
-       <td >&nbsp;</td>
-    </tr>
-      <tr>
-       <td>&nbsp;</td>
-       <td width="500">&nbsp;</td>
-       <td >&nbsp;</td>
-    </tr>
-    <tr>
-       <td>&nbsp;</td>
-       <td width="500"><img src="img/chart2.jpg"/></td>
-       <td >&nbsp;</td>
-    </tr>
-
- <!--
   <tr>
     <td>&nbsp;</td>
     <td width="279">&nbsp;</td>
@@ -59,47 +37,40 @@ function MM_preloadImages() { //v3.0
   <tr>
     <td width="50">&nbsp;</td>
     <td colspan="2" align="left" bgcolor="#E28F29" class="titulo1">ESTACIONAMIENTO 1</td>
-    <td width="321" rowspan="9" >&nbsp;<img src="img/chart1.jpg"  /></td>
+    <td width="321">&nbsp;</td>
   </tr>
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td width="262">&nbsp;</td>
+    <td>&nbsp;</td>
     </tr>
   <tr>
     <td>&nbsp;</td>
     <td bgcolor="#666666" class="borde2">% Porcentaje Disponibilidad</td>
     <td align="right" bgcolor="#666666" class="borde2">5%</td>
-   
+    <td>&nbsp;</td>
     </tr>
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td align="right">&nbsp;</td>
-    
+    <td>&nbsp;</td>
   </tr>
   <tr>
     <td>&nbsp;</td>
     <td bgcolor="#666666" class="borde2">Ubicaciones Disponibles</td>
     <td align="right" bgcolor="#666666" class="borde2">100</td>
-    
+    <td>&nbsp;</td>
     </tr>
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -108,7 +79,7 @@ function MM_preloadImages() { //v3.0
   <tr>
     <td>&nbsp;</td>
     <td colspan="2" bgcolor="#E28F29" class="titulo1">ESTACIONAMIENTO 2</td>
-    <td width="321" rowspan="9" >&nbsp;<img src="img/chart2.jpg"  /></td>
+    <td>&nbsp;</td>
   </tr>
   <tr>
     <td>&nbsp;</td>
@@ -137,38 +108,26 @@ function MM_preloadImages() { //v3.0
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td >&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
   </tr>
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td >&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
   </tr>
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
--->
-  <tr>
-    <td>&nbsp;</td>
-   
-    <td><form id="form1" name="form1" method="post" action="Inicio.do">
+    <td colspan="2"><form id="form1" name="form1" method="post" action="Inicio.do">
       <label>
-          <input align="center" type="submit" name="regresar" id="regresar" value="REGRESAR" />
+        <input type="submit" name="regresar" id="regresar" value="REGRESAR" />
         </label>
       </form></td>
-     <td>&nbsp;</td>
   </tr>
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
   </tr>
 </table>
 

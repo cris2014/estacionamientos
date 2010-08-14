@@ -6,8 +6,7 @@
 package com.estacionamiento.actions;
 
 import com.estacionamiento.forms.LoginForm;
-import com.estacionamiento.bean.UsuarioBean;
-import com.estacionamiento.dao.UsuarioDAO;
+import com.estacionamiento.bean.Usuario;
 import com.estacionamiento.util.GlobalMappingsEstacionamiento;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,9 +16,11 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
 
-
+/**
+ *
+ * @author pcruces
+ */
 public class LoginAction extends Action{
 
 
@@ -34,56 +35,39 @@ public class LoginAction extends Action{
         ActionForward forward = new ActionForward();
         LoginForm loginForm = (LoginForm)form;
 
-        HttpSession session=request.getSession();
         String next;
-        
-        try{
-  
         String operacion=loginForm.getOperacion();
-
+        String usuario = loginForm.getUser();
+        String clave = loginForm.getPwd();
         
-     System.out.println("dquinonez::"+operacion); 
+        if (usuario.trim().equals("")){
+            loginForm.setMensajeError("Ingrese un usuario valido!");
+        }
 
         if(operacion!=null && operacion.equals(GlobalMappingsEstacionamiento.INICIO1)){
+/*
+            Usuario usuario = new Usuario();
+            usuario.setCodigo(loginForm.getUser());
+
+            usuario.setApellido("LUNA LUNA VIGO");
+            usuario.setNombre("IVAN");
+            String ingreso = "1";
+
+ */
+
 
             forward = mapping.findForward(GlobalMappingsEstacionamiento.INGRESO);
 
-        }else if (operacion!=null && operacion.equals(GlobalMappingsEstacionamiento.INICIO2)){
-            session.removeAttribute("usuario");
-            UsuarioBean usuariobean = new UsuarioBean();
-            UsuarioBean usuario = new UsuarioBean();
-            forward = mapping.findForward(GlobalMappingsEstacionamiento.MENU);
-
-            if(loginForm.getUser().trim().equals("")||loginForm.getPwd().trim().equals("") ){
-                errors.add("error.validacion.usuariopwd", new ActionMessage("error.validacion.usuariopwd"));
-            }else {
-                usuariobean.setLogin(loginForm.getUser());
-                usuariobean.setPwd(loginForm.getPwd());
-
-                UsuarioDAO usuarioDAO=new UsuarioDAO();
-                usuario=usuarioDAO.validarLogin(usuariobean,errors);
-
-                session.setAttribute("usuario",usuario);
-            }
-            if(!errors.isEmpty()){
-               saveErrors(request, errors);
-               forward = mapping.findForward(GlobalMappingsEstacionamiento.SELF);
-            }
-
-            //Datos jalados x BD
-            /*
-            usuario.setApellido("LUNA LUNA VIGO");
-            usuario.setNombre("IVAN"); 
-            usuario.setTipousuario("Alumno");
-            usuario.setCodigo("U913833");
-            */
-          
-            
-            
+        }else{
+             if (operacion!=null && operacion.equals(GlobalMappingsEstacionamiento.INICIO2)){
+                forward = mapping.findForward(GlobalMappingsEstacionamiento.MENU);
+             }
         }
-        
-        }catch(Exception e){
-           e.printStackTrace();
+
+
+        if (loginForm.getMensajeError()!=null)
+        {
+            next = "self";
         }
 
         return (forward);

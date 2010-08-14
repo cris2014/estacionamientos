@@ -32,10 +32,8 @@ function MM_swapImage() { //v3.0
 }
 
 function onContinuar(codigo) {
-    var f= document.forms[0];
-    f.operacion.value=codigo;
-    //document.forms[0].action = "menuinterno.do?operacion="+codigo;
-	f.submit();
+    document.forms[0].action = "menuinterno.do?operacion="+codigo;
+	document.forms[0].submit();
 }
 //-->
 </script>
@@ -49,16 +47,11 @@ function onContinuar(codigo) {
   <div id="menu">
   
   <div id="bot_menu2">
-  <!-- end #bot_default3  menuinterno-->
-
-<html:form action="/registroReporteAction" >  
-
-<html:hidden property="operacion" />
-
-
+  <!-- end #bot_default3 -->
+<html:form action="/menuinterno" >  
   <table>
     <tr>
-      <td><a href="javascript:onContinuar('irReporte')" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','img/reporte_estado_2.png',1)"><img src="img/reporte_estado_1.png" name="Image3" width="146" height="139" border="0" id="Image3" /></a></td>
+      <td><a href="javascript:onContinuar('2')" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image3','','img/reporte_estado_2.png',1)"><img src="img/reporte_estado_1.png" name="Image3" width="146" height="139" border="0" id="Image3" /></a></td>
     </tr>
   </table>
   </div>
@@ -66,7 +59,7 @@ function onContinuar(codigo) {
   <div id="bot_menu1">
   <table>
   <tr>
-    <td><a href="javascript:onContinuar('irRegistro')" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image2','','img/registro_vehiculos_2.png',1)"><img src="img/registro_vehiculos_1.png" name="Image2" width="146" height="139" border="0" id="Image2" /></a></td>
+    <td><a href="javascript:onContinuar('1')" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image2','','img/registro_vehiculos_2.png',1)"><img src="img/registro_vehiculos_1.png" name="Image2" width="146" height="139" border="0" id="Image2" /></a></td>
   </tr>
 </table>
 </html:form>
