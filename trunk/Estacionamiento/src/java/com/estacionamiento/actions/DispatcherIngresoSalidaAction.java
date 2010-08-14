@@ -7,7 +7,7 @@ package com.estacionamiento.actions;
 
 /**
  *
- * @author iluna
+ * @author Jefferson
  */
 public class DispatcherIngresoSalidaAction {
 

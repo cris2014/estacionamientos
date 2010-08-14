@@ -16,6 +16,9 @@
         <form-bean name="IngresoSalidaForm" type="com.estacionamiento.forms.IngresoSalidaForm">
 	</form-bean>
 
+        <form-bean name="RegistroReporteForm" type="com.estacionamiento.forms.RegistroReporteForm">
+	</form-bean>
+
         <form-bean name="MenuForm" type="com.estacionamiento.forms.MenuForm">
 	</form-bean>
     </form-beans>
@@ -36,8 +39,12 @@
 	  	</forward>
                 <forward name="mantenimientoConsulta" path="/login2.jsp">
 	  	</forward>
+                 <forward name="disponibilidad" path="/disponibilidadAction.do">
+	  	</forward>
+                <!--
                 <forward name="disponibilidad" path="/disponibilidad.jsp">
 	  	</forward>
+                -->
 	</action>
 
         <action name="LoginForm" path="/login" scope="request" type="com.estacionamiento.actions.LoginAction">
@@ -47,8 +54,55 @@
                 </forward>
                 <forward name="menu" path="/menu.jsp">
                 </forward>
+                <forward name="self" path="/login2.jsp">
+	  	</forward>
         </action>
 
+        <action name="IngresoSalidaForm" path="/ingresoSalidaAction" scope="request" type="com.estacionamiento.actions.IngresoSalidaAction">
+                <forward name="ingreso" path="/ingreso.jsp">
+                </forward>
+                <forward name="salida" path="/salida.jsp">
+                </forward>
+                <forward name="inicio" path="/inicio.jsp">
+                </forward>
+                <forward name="self" path="/login1.jsp">
+	  	</forward>
+        </action>
+
+	<action path="/registroReporteAction"  type="com.estacionamiento.actions.RegistroReporteAction" name="RegistroReporteForm"  parameter="operacion">
+                 <forward name="registroVehiculo" path="/registrovehiculo.jsp">
+	  	</forward>
+                 <forward name="self" path="/registrovehiculo.jsp">
+	  	</forward>
+                <forward name="reporteEstado" path="/reportedeestado.jsp">
+	  	</forward>
+                 <forward name="menu" path="/menu.jsp">
+                </forward>
+                <!--
+                <forward name="retornar" path="/iniciarSolicitudOIEquipamiento.do">
+	  	</forward>
+		<forward name="inicio" path="/solicitudOIEquipamiento/crearSolicitud.jsp">
+		</forward>					
+		<forward name="confirmar" path="/solicitudOIEquipamiento/confirmar.jsp">
+		</forward>
+                -->
+	</action>
+        <!--
+ 	<action path="/registroReporteAction"  type="com.estacionamiento.actions.RegistroReporteAction" name="RegistroReporteForm"  parameter="operacion">
+                 <forward name="registroVehiculo" path="/registrovehiculo.jsp">
+	  	</forward>
+                <forward name="reporteEstado" path="/reportedeestado.jsp">
+	  	</forward>
+	</action>
+        -->
+       <action path="/disponibilidadAction"  type="com.estacionamiento.actions.DisponibilidadAction" name="LoginForm"  >
+                 <forward name="disponibilidad" path="/disponibilidad.jsp">
+	  	</forward>
+                <forward name="inicio" path="/inicio.jsp">
+                </forward>
+	</action>
+        
+        
 	<action name="MenuForm"  path="/menuinterno" type="com.estacionamiento.actions.MenuAction"  scope="request">
                 <forward name="registroVehiculo" path="/registrovehiculo.jsp">
 	  	</forward>
@@ -59,8 +113,8 @@
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
-
-    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+	<!-- Message Resources -->
+    <message-resources parameter="com.estacionamiento.resources.ApplicationResources"/>
     
     <plug-in className="org.apache.struts.tiles.TilesPlugin" >
         <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      

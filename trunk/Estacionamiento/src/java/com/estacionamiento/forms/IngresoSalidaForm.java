@@ -7,7 +7,10 @@ package com.estacionamiento.forms;
 
 import org.apache.struts.action.ActionForm;
 
-
+/**
+ *
+ * @author pcruces
+ */
 public class IngresoSalidaForm extends ActionForm{
     private String user;
     private String estacionamiento;

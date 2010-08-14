@@ -1,5 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -46,7 +48,22 @@ function onContinuar(codigo) {
   <div id="header">
     <!-- end #header --></div>
   <div id="default">
-  
+       <!--	Mensajes de error -->
+	<logic:messagesPresent>
+		<table width="500" border="0" align="center">
+			<tr>
+  				<td  height="15" style="font-weight:bold;" >
+					<bean:message key="errors.validation.header" />
+					<html:messages id="error">
+						<c:out value="${error}" />
+					</html:messages>
+					<bean:message key="errors.validation.footer" />
+				</td>
+			</tr>
+		</table>
+	</logic:messagesPresent>
+<!--	Mensajes de error -->
+
   <div id="bot_default3">
   <!-- end #bot_default3 -->
 

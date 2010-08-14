@@ -8,7 +8,10 @@ package com.estacionamiento.forms;
 import java.util.ArrayList;
 import org.apache.struts.action.ActionForm;
 
-
+/**
+ *
+ * @author Jefferson
+ */
 public class RegistroReporteForm extends ActionForm{
     private String operacion;
     private String placa;

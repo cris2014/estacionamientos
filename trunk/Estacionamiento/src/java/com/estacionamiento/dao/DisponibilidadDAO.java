@@ -58,6 +58,15 @@ public class DisponibilidadDAO {
                                 }
                             }
                         }
+
+                        for(int i=0;i<aux.size();i++){
+                            estacionamientoAux=(EstacionamientoBean)aux.get(i);
+                            if(estacionamientoAux.getDisponibles()==0){
+                               lstEstacionamiento.add(estacionamientoAux);
+                            }
+                        }
+
+
                         rs=null;
 
 

@@ -7,6 +7,7 @@ package com.estacionamiento.bean;
 
 import java.io.Serializable;
 
+
 public class VehiculoBean implements Serializable{
      private String placa;
      private String modelo;
